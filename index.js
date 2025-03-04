@@ -30,3 +30,22 @@ const dog = new Dog('Rex', 'БУЛЬДОГ')
 dog.makeSound()
 dog.fetch()
 
+
+function Vehicle(mark, model){
+    this.mark = mark
+    this.model = model
+    this.start = function() {
+        console.log(`Двигатель запущен`)
+    }
+}
+
+function Car(mark, model){
+    Vehicle.call(this, mark, model)
+    this.drive = function () {
+        console.log(`Машина ${mark} ${model} поехала`)
+    }
+}
+
+const car = new Car('Toyota', 'Camry')
+car.start()
+car.drive()
