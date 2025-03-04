@@ -34,9 +34,11 @@ dog.fetch()
 function Vehicle(mark, model){
     this.mark = mark
     this.model = model
-    this.start = function() {
-        console.log(`Двигатель запущен`)
-    }
+    
+}
+
+Vehicle.prototype.start = function() {
+    console.log(`Двигатель запущен`)
 }
 
 function Car(mark, model){
@@ -46,6 +48,8 @@ function Car(mark, model){
     }
 }
 
+Car.prototype = Object.create(Vehicle.prototype)
 const car = new Car('Toyota', 'Camry')
 car.start()
 car.drive()
+console.log(car.__proto__)
